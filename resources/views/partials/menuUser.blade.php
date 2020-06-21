@@ -1,27 +1,39 @@
 <div class="container">
         <nav class="navbar navbar-expand-sm bg-secondary navbar-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="menuNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Trang chủ</a>
+                    <a class="nav-link" href="#"><b>TRANG CHỦ</b></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Giới thiệu</a>
+                    <a class="nav-link" href="#"><b>TẤT CẢ SẢN PHẨM</b></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Tất cả các sản phẩm</a>
+                    <a class="nav-link" href="#"><b>CÁCH CHỌN GIÀY</b></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link disabled" href="#">Cách chọn giày</a>
+                    <a class="nav-link" href="#"><b>GIẢM GIÁ</b></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Liên hệ</a>
+                    <a class="nav-link" href="#"><b>XẾP THEO</b></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Giảm giá</a>
+                    <a class="nav-link disabled" href="#"><b>LIÊN HỆ</b></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Sắp xếp theo</a>
+                    <a class="nav-link" href="#"><b>HỆ THỐNG CỬA HÀNG</b></a>
                 </li>
             </ul>
+            <!-- <ul class="navbar-nav">
+            <li class="nav-item active">
+                    <a class="nav-link" href="#">Sắp xếp theo</a>
+                </li>
+            </ul> -->
+           
+            </div>
         </nav>
+      
     </div>

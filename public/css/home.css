@@ -1,4 +1,3 @@
-
 p {
     color: white;
     margin-top: 0.6rem;
@@ -6,27 +5,28 @@ p {
     margin-left: 3rem;
     position: relative;
 }
+
 body {
-    line-height: 0.8;
-    background-color:#fff;
+    line-height: 0.5rem;
+    background-color: #f2f2f2;
 }
-i{
+
+i {
     margin-left: 0px;
     font-size: 30px;
     color: aliceblue;
 }
-html{
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-}
-#categorys{
+
+#categorys {
     height: 520px;
     width: 100%;
     background: white;
     color: black;
     font-family: inherit;
-    margin-top:20px;
-    margin-left:20px;
+    margin-top: 20px;
+    margin-left: 20px;
 }
+
 button {
     margin-top: 0rem;
     margin-bottom: 0rem;
@@ -35,15 +35,18 @@ button {
 .btn {
     line-height: 1rem;
 }
-#bodyCard{
+
+#bodyCard {
     background-color: #f2f2f2;
-   border-color: #f2f2f2;
+    border-color: #f2f2f2;
 }
-#btnbtn:hover{
+
+#btnbtn:hover {
     color: red;
 }
-#cartproduct{
-    height:auto;
+
+#cartproduct {
+    height: auto;
     width: 100%;
     background: white;
     margin: 50px;
@@ -51,3 +54,13 @@ button {
     font-family: inherit;
 }
 
+li {
+    margin-left: 20px;
+    color: white;
+    vertical-align: middle;
+}
+
+.category-active {
+    background-color: #6c757d;
+    color: white;
+}

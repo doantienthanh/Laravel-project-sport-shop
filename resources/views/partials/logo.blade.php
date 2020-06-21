@@ -1,15 +1,19 @@
 <nav class="navbar navbar-expand-sm bg-while navbar-while">
     <!-- Brand/logo -->
-
+    <button class="navbar-toggler" type="button" data-toggle="collapse">
+    <a class="navbar-brand" href="#">
+            <img src="https://i.ytimg.com/vi/H4ubtC7Z4Nc/maxresdefault.jpg" alt="logo"
+                style="margin-top:10px;width:15rem;">
+        </a>
+  </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
         <a class="navbar-brand" href="#">
             <img src="https://i.ytimg.com/vi/H4ubtC7Z4Nc/maxresdefault.jpg" alt="logo"
                 style="margin-top:10px;width:15rem;">
         </a>
     </div>
-
     <!-- Links -->
-
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <form class="form-inline" method="post" action="" style="margin-left:50px;" enctype="multipart/form-data">
             @csrf
@@ -21,9 +25,6 @@
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                 <button class="btn btn-success" name="btnSearch" type="submit" style="height:1cm;">Tìm kiếm</button>
             </div>
-
-
-
         </form>
     </div>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
@@ -38,5 +39,5 @@
             </li>
         </ul>
     </div>
-
+    </div>
 </nav>
