@@ -21,6 +21,7 @@ Route::post("/userLogin","Auth\LoginController@login");
 Route::post('/user-logout','Auth\LoginController@logout');
 // Admin
 Route::get('/admin/dashboard', "Admin\DashboardContronller@index");
-
+// Admin management Product
 Route::get('/admin/Product/Create', "Admin\ManagemetProductController@getFormAdd");
 Route::post('/admin/product/addProducts', "Admin\ManagemetProductController@createProduct");
+Route::get('/admin/FindProduct/delete',"Admin\ManagemetProductController@getAllProduct");

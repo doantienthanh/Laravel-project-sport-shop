@@ -67,7 +67,7 @@
                             <div class="dropdown-menu"><br><br>
                                 <a class="dropdown-item" href="/admin/Product/Create" style=" padding: 5px 5px;font-size: 20px;
         text-align: center;">Thêm sản phẩm</a> <br><br>
-                                <a class="dropdown-item" href="#" style=" padding: 5px 5px;font-size: 20px;
+                                <a class="dropdown-item" href="/admin/FindProduct/delete" style=" padding: 5px 5px;font-size: 20px;
         text-align: center;">Xóa sản phẩm</a><br><br>
                                 <a class="dropdown-item" href="#" style=" padding: 5px 5px;font-size: 20px;
         text-align: center;">Sửa sản phẩm</a><br>
@@ -97,14 +97,11 @@
 
                     </div>
                 </div>
-
             </div>
             <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
                 @yield('content')
             </div>
         </div>
-
-
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
     <script src="/js/app.js"></script>

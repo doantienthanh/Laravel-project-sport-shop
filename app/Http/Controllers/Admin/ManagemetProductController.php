@@ -18,13 +18,10 @@ class ManagemetProductController extends Controller
        $sizes=Sizes::all();
       return view('admin.products.createProducts',['companies'=> $companies,'categories'=>$categories,'sizes'=>$sizes]);
   }
-//   function index(){
-//     $companies= Companies::all();     
-//     $categories= Categories::all();
-//     $sizes=Sizes::all();
-//    return view('admin.products.createProducts',['companies'=> $companies,'categories'=>$categories,'sizes'=>$sizes]);
-// }
-
+  function getAllProduct(){
+    $products=Products::All();
+    return view('admin.products.deleteProducts',['products'=>$products]);
+  }
   function createProduct(REQUEST $request){
       // Product
       $company=$request->company;
