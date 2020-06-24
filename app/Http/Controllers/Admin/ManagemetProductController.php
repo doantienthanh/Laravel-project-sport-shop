@@ -13,14 +13,21 @@ use App\SizeProducts;
 class ManagemetProductController extends Controller
 {
   function getFormAdd(){
-       $companies= Companies::all();     
+       $companies= Companies::all();
        $categories= Categories::all();
        $sizes=Sizes::all();
       return view('admin.products.createProducts',['companies'=> $companies,'categories'=>$categories,'sizes'=>$sizes]);
   }
   function getAllProduct(){
-    $products=Products::All();
-    return view('admin.products.deleteProducts',['products'=>$products]);
+    return Products::All();
+  }
+  function returnPageDelete(){
+  $products= $this->getAllProduct();
+   return view('admin.products.deleteProducts',['products'=>$products]);
+  }
+  function returnPageEdit(){
+    $products= $this->getAllProduct();
+    return view('admin.products.findProductToEdit',['products'=>$products]);
   }
   function createProduct(REQUEST $request){
       // Product
@@ -35,6 +42,7 @@ class ManagemetProductController extends Controller
 
       // Detail
       $sizes=$request->sizes;
+
       $color=$request->colorProduct;
       $sole=$request->soleProduct;
       $weight=$request->weight;
@@ -68,7 +76,22 @@ class ManagemetProductController extends Controller
     $sizeProduct->product_id=$product_id;
     $sizeProduct->size_id=$sizes[$i];
     $sizeProduct->save();
+return redirect('/admin/FindProduct/delete');
    }
   }
 
+  //Xoa san pham
+  function deleteProduct($slug){
+    Products::where('slug',$slug)->delete();
+   return redirect('/admin/FindProduct/delete');
+  }
+  // Sua san pham
+  function getFormEdit($id){
+    $companies= Companies::all();
+    $categories= Categories::all();
+    $sizes=Sizes::all();
+    $products=Products::find($id);
+    $details=Details::where('product_id',$id)->get();
+ return view('admin.products.editProduct',['products'=>$products,'companies'=>$companies,'categories'=>$categories,'sizes'=>$sizes,'details'=>$details]);
+  }
 }

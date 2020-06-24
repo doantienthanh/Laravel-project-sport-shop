@@ -69,7 +69,7 @@
         text-align: center;">Thêm sản phẩm</a> <br><br>
                                 <a class="dropdown-item" href="/admin/FindProduct/delete" style=" padding: 5px 5px;font-size: 20px;
         text-align: center;">Xóa sản phẩm</a><br><br>
-                                <a class="dropdown-item" href="#" style=" padding: 5px 5px;font-size: 20px;
+                                <a class="dropdown-item" href="/admin/FindProduct/toEdit" style=" padding: 5px 5px;font-size: 20px;
         text-align: center;">Sửa sản phẩm</a><br>
                             </div>
                         </div><br><br><br><br><br>

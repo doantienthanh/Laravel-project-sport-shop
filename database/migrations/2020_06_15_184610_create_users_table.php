@@ -17,10 +17,10 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('fullName');
             $table->string('email');
-            $table->string('address');
-            $table->date('dob');
+            $table->string('address')->nullable();
+            $table->date('dob')->nullable();
             $table->string('password');
-            $table->string('position');
+            $table->string('position')->nullable();
             $table->timestamps();
             $table->charset = 'utf8mb4';
         });

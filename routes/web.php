@@ -24,4 +24,7 @@ Route::get('/admin/dashboard', "Admin\DashboardContronller@index");
 // Admin management Product
 Route::get('/admin/Product/Create', "Admin\ManagemetProductController@getFormAdd");
 Route::post('/admin/product/addProducts', "Admin\ManagemetProductController@createProduct");
-Route::get('/admin/FindProduct/delete',"Admin\ManagemetProductController@getAllProduct");
+Route::get('/admin/FindProduct/delete',"Admin\ManagemetProductController@returnPageDelete");
+Route::delete('/admin/deleteProduct/{slug}', 'Admin\ManagemetProductController@deleteProduct');
+Route::get('/admin/FindProduct/toEdit',"Admin\ManagemetProductController@returnPageEdit");
+Route::get('admin/product/getForm/edit/{id}', 'Admin\ManagemetProductController@getFormEdit');

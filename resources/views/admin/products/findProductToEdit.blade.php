@@ -1,7 +1,7 @@
 @extends('layouts.masterAdmin')
 @section('content')
 <div class="container" style="margin-top:50px;height:600px;">
-    <h1 class="text-center"><b>CHỌN SẢN PHẨM CẦN XÓA</b></h1>
+    <h1 class="text-center"><b>CHỌN SẢN PHẨM CẦN SỬA</b></h1>
     <div class="table-wrapper-scroll-y my-custom-scrollbar">
     <table class="table table-striped table-bordered overflow-auto">
         <thead>
@@ -26,12 +26,7 @@
                 <td class="text-center">{{$product->discount}}</td>
                 <td class="text-center">{{$product->quantity}}</td>
                 <td>
-             <form action="/admin/deleteProduct/{{$product->slug}}" method="post">
-@csrf
-@method('delete')
-                    <button class="btn btn-danger" type="submit" style="width:100px;margin-top:6px;">
-                    <i class='fas fa-trash' style='font-size:24px'></i></button>
-             </form>
+<a href="/admin/product/getForm/edit/{{$product->id}}" class="btn btn-info" type="button" style="width:100px;margin-top:6px;"><i class='fas fa-edit' style='font-size:24px'></i></a>
             </td>
             </tr>
             @endforeach
