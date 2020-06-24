@@ -13,5 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', "HomeController@index");
-Route::get("/{category}","HomeController@index");
+Route::get('/', "User\HomeController@index");
+Route::get("/{category}","User\HomeController@index");
+
+// LOGIN
+Route::post("/userLogin","Auth\LoginController@login");
+Route::post('/user-logout','Auth\LoginController@logout');
+// Admin
+Route::get('/admin/dashboard', "Admin\DashboardContronller@index");
+
+Route::get('/admin/Product/Create', "Admin\ManagemetProductController@getFormAdd");
+Route::post('/admin/product/addProducts', "Admin\ManagemetProductController@createProduct");

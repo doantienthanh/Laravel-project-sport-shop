@@ -1,10 +1,9 @@
 @extends('layouts.master')
-
 @section('content')
 @include('partials/logo')
 @include('partials/menuUser')
 <div class="container-fluid">
-<div class="row">
+<div class="row" style="margin-bottom:20px;">
 @include('partials/categories')
 <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="margin-top:100px;margin-left:100px">
 <div id="demo" class="carousel slide" data-ride="carousel">
@@ -39,9 +38,6 @@
                     </a>
                 </div>
 </div>
-
-             
-
 </div>
 </div>
 @endsection

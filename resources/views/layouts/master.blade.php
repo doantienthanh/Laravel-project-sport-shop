@@ -16,20 +16,6 @@
 @yield('content')
 @include('partials/footer')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
-     <script>
-        var btn = document.getElementsByClassName("btn btn-outline-secondary");
-        console.log(btn);
-       
-        for(var i=0;i<8;i++){
-            if(btn[i].clicked){
-                console.log("ok");  
-                check(btn[i]);}
-        }
-
-        function check(btn){
-            btn.className="btn btn-outline-secondary category-active"
-        }
-     </script>
     <script src="/js/app.js"></script>
      
 </body>

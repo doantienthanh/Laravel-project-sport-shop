@@ -20,12 +20,11 @@ class CreateUsersTable extends Migration
             $table->string('address');
             $table->date('dob');
             $table->string('password');
-            $table->string('avarta');
+            $table->string('position');
             $table->timestamps();
             $table->charset = 'utf8mb4';
         });
     }
-
     /**
      * Reverse the migrations.
      *

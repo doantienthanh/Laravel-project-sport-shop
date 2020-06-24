@@ -1,66 +1,71 @@
-p {
-    color: white;
-    margin-top: 0.6rem;
-    margin-bottom: 0.5rem;
-    margin-left: 3rem;
-    position: relative;
-}
-
-body {
-    line-height: 0.5rem;
-    background-color: #f2f2f2;
-}
-
-i {
-    margin-left: 0px;
-    font-size: 30px;
-    color: aliceblue;
-}
-
-#categorys {
-    height: 520px;
-    width: 100%;
-    background: white;
-    color: black;
-    font-family: inherit;
-    margin-top: 20px;
-    margin-left: 20px;
-}
-
-button {
-    margin-top: 0rem;
-    margin-bottom: 0rem;
-}
-
-.btn {
-    line-height: 1rem;
-}
-
-#bodyCard {
-    background-color: #f2f2f2;
-    border-color: #f2f2f2;
-}
-
-#btnbtn:hover {
-    color: red;
-}
-
-#cartproduct {
-    height: auto;
-    width: 100%;
-    background: white;
-    margin: 50px;
-    color: black;
-    font-family: inherit;
-}
-
-li {
-    margin-left: 20px;
-    color: white;
-    vertical-align: middle;
-}
-
-.category-active {
-    background-color: #6c757d;
-    color: white;
-}
+    p {
+        color: white;
+        margin-top: 0.1rem;
+        margin-bottom: 0.2rem;
+        margin-left: 3rem;
+    }
+    
+    body {
+        line-height: 0.5rem;
+        background-color: #f2f2f2;
+    }
+    
+    i {
+        margin-left: 0px;
+        font-size: 30px;
+        color: aliceblue;
+    }
+    
+    #categorys {
+        height: 520px;
+        width: 100%;
+        background: white;
+        color: black;
+        font-family: inherit;
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+    
+    .btn {
+        line-height: .0001rem;
+    }
+    
+    #bodyCard {
+        background-color: #f2f2f2;
+        border-color: #f2f2f2;
+    }
+    
+    #btnbtn:hover {
+        color: red;
+    }
+    
+    #cartproduct {
+        height: auto;
+        width: 100%;
+        background: white;
+        margin: 50px;
+        color: black;
+        font-family: inherit;
+    }
+    
+    li {
+        margin-left: 20px;
+        color: white;
+    }
+    
+    .category-active {
+        background-color: #6c757d;
+        color: white;
+    }
+    
+    .fas {
+        line-height: 0.6rem;
+    }
+    
+    .dropdown-item:hover {
+        background-color: #6c757d;
+        color: #f2f2f2;
+        height: 1cm;
+        font-size: 20px;
+        text-align: center;
+    }
