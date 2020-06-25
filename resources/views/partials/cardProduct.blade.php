@@ -26,12 +26,12 @@
                 </div>
                 @else
                 <div class="row" style="float:left;">
-                    <a href="/user/viewDetail/{{$product->id}}" class="btn btn-info" id="btnbtn"
-                        style='font-size:20px;margin-left:10px;width:100px;' type="button"><i class='fas fa-eye'></i></a>
-                    <span><a href="#" type="button" id="btnbtn" class="btn btn-info" data-toggle="modal"
-                            data-target="#loginModol" style='font-size:20px;margin-left:5px;width:100px;'><i
+                    <a href="/home/viewDetailProducts/{{$product->slug}}" class="btn btn-info" id="btnbtn"
+                        style='font-size:20px;margin-left:5px;width:100px;' type="button"><i class='fas fa-eye'></i></a>
+                    <span>
+                    <a href="#" type="button" id="btnbtn" class="btn btn-info" data-toggle="modal"
+                            data-target="#loginModol" style='font-size:20px;margin-left:5px;width:150%;'><i
                                 class="fa fa-shopping-cart"></i></a></span>
-
                 </div>
                 @endif
             </div>

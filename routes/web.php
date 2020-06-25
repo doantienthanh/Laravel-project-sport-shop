@@ -33,4 +33,4 @@ Route::PATCH('/admin/editProduct/{id}', 'Admin\ManagemetProductController@update
 
 //User
 Route::get('/home/allProduct','User\HomeController@getAllProduct');
-
+Route::get('/home/viewDetailProducts/{slug}','User\ProductController@viewDetails');
