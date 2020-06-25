@@ -6,10 +6,10 @@
   <div class="collapse navbar-collapse" id="menuNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#"><b>TRANG CHỦ</b></a>
+                    <a class="nav-link" href="/"><b>TRANG CHỦ</b></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#"><b>TẤT CẢ SẢN PHẨM</b></a>
+                    <a class="nav-link" href="/home/allProduct"><b>TẤT CẢ SẢN PHẨM</b></a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="#"><b>CÁCH CHỌN GIÀY</b></a>

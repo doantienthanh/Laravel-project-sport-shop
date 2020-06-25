@@ -42,7 +42,6 @@ class ManagemetProductController extends Controller
 
       // Detail
       $sizes=$request->sizes;
-
       $color=$request->colorProduct;
       $sole=$request->soleProduct;
       $weight=$request->weight;
@@ -70,14 +69,15 @@ class ManagemetProductController extends Controller
     $detail->weight=$weight;
     $detail->description=$description;
     $detail->save();
+
  // Add size_Product
  for($i=0;$i< count($sizes);$i++){
     $sizeProduct= new SizeProducts;
     $sizeProduct->product_id=$product_id;
     $sizeProduct->size_id=$sizes[$i];
     $sizeProduct->save();
-return redirect('/admin/FindProduct/delete');
    }
+   return redirect('/admin/FindProduct/delete');
   }
 
   //Xoa san pham
@@ -93,5 +93,54 @@ return redirect('/admin/FindProduct/delete');
     $products=Products::find($id);
     $details=Details::where('product_id',$id)->get();
  return view('admin.products.editProduct',['products'=>$products,'companies'=>$companies,'categories'=>$categories,'sizes'=>$sizes,'details'=>$details]);
+  }
+  function updateProduct(REQUEST $request,$id){
+     $company=$request->companyUpdate;
+     $category=$request->categoryUpdate;
+     $slug=$request->slugUpdate;
+     $name=$request->nameProductUpdate;
+     $quantity=$request->quantityProductUpdate;
+     $oldPrice=$request->oldPriceUpdate;
+     $newPrice=$request->priceProduct;
+     $dateCreate=$request->dateCreateUpdate;
+     $image=$request->file('imageUpdate')->store("public");
+
+     $product=Products::find($id);
+     $product->slug=$slug;
+     $product->name_product=$name;
+     $product->image=$image;
+
+     $product->price=$newPrice;
+     $product->old_price=$oldPrice;
+   
+     $product->quantity=$quantity;
+     $product->date_create=$dateCreate;
+     $product->category_id=$category;
+     $product->company_id=$company;
+     $product->save();
+
+
+     $sizes=$request->sizesUpdate;
+     $color=$request->colorProductUpdate;
+     $sole=$request->soleProductUpdate;
+     $weight=$request->weightUpdate;
+     $description=$request->descriptionUpdate;
+
+// Add size_Product
+for($i=0;$i< count($sizes);$i++){
+  $sizeProduct=new SizeProducts;
+  $sizeProduct->product_id=$id;
+  $sizeProduct->size_id=$sizes[$i];
+  $sizeProduct->save();
+ }
+
+     $detail=Details::where('product_id',$id)->first();
+     $detail->product_id=$id;
+     $detail->color=$color;
+     $detail->sole=$sole;
+     $detail->weight=$weight;
+     $detail->description=$description;
+     $detail->save();
+ return redirect('/admin/FindProduct/toEdit');
   }
 }
