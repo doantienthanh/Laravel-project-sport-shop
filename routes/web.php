@@ -28,7 +28,7 @@ Route::get('/admin/FindProduct/delete',"Admin\ManagemetProductController@returnP
 Route::delete('/admin/deleteProduct/{slug}', 'Admin\ManagemetProductController@deleteProduct');
 Route::get('/admin/FindProduct/toEdit',"Admin\ManagemetProductController@returnPageEdit");
 Route::get('admin/product/getForm/edit/{id}', 'Admin\ManagemetProductController@getFormEdit');
-Route::PATCH('/admin/editProduct/{id}', 'Admin\ManagemetProductController@updateProduct');
+Route::DELETE('/admin/editProduct/{id}', 'Admin\ManagemetProductController@updateProduct');
 
 
 //User
@@ -36,3 +36,7 @@ Route::get('/home/allProduct','User\HomeController@getAllProduct');
 Route::get('/home/viewDetailProducts/{slug}','User\ProductController@viewDetails');
 Route::get('/home/viewCart/ofUser',"User\ProductController@viewCart");
 Route::get('/home/user/product/addtocart/{slug}','User\ProductController@addToCart');
+Route::PATCH('/home/user/addQuantityInCart{slug}',"User\ProductController@addQuantity");
+Route::PATCH('/home/user/minusQuantityInCart{slug}',"User\ProductController@minusQuantity");
+Route::DELETE('/home/user/delete{id}',"User\ProductController@deleteProductInCart");
+

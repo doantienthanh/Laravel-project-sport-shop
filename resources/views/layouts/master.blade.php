@@ -17,7 +17,6 @@
 @include('partials/footer')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
     <script src="/js/app.js"></script>
-     
-</body>
 
+</body>
 </html>

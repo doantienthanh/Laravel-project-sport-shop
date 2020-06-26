@@ -5,7 +5,7 @@
             style="width:100%;height:500px;margin-top:20px;margin-bottom:20px;">
             <div class="card-header">
                 @if($product->discount != 0.00 )
-                <button class="btn btn-danger" type="button" style="position: absolute;">{{$product->discount}}</button>
+                <button class="btn btn-danger" type="button" style="position: absolute; width: 70px;height: 30px;">{{$product->getDiscount()}}</button>
                 @endif
                 <img class="card-img-top" src="{{'/storage/'. $product->image}}" alt="Card image"
                     style="width:100%;height:250px;"></div>

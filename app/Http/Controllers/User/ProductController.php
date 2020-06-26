@@ -26,7 +26,7 @@ class ProductController extends Controller
         }
        return view('users.viewDetails',['products'=>$products,'categories'=>$categories]);
     }
-    
+
     function viewCart(){
         $id_user=Auth::user()->id;
         $carts=Carts::where('user_id',$id_user)->get();
@@ -48,7 +48,7 @@ function addToCart($slug){
           $quantity= $carts->quantity+1;
           $total=$quantity*$price_product;
           $carts->quantity=$quantity;
-          $carts->total_price=$total;  
+          $carts->total_price=$total;
           $carts->save();
       }else{
         $quantity=1;
@@ -69,5 +69,38 @@ function getQuantityCart(){
         $quantity=$quantity+$cart->quantity;
     }
     return view('index',$quantity);
+}
+// Hàm thêm số lượng cho sản phẩm trong giỏ hàng
+function addQuantity($slug){
+    $products=products::where('slug',$slug)->first();
+    $id_product=$products->id;
+    $carts=Carts::where('product_id',$id_product)->first();
+          $quantity= $carts->quantity+1;
+          $price_product=$products->price;
+          $total=$quantity*$price_product;
+          $carts->quantity=$quantity;
+          $carts->total_price=$total;
+          $carts->save();
+          return redirect('/home/viewCart/ofUser');
+}
+// Hàm giảm số lượng trong giỏ hàng
+function minusQuantity($slug){
+    $products=products::where('slug',$slug)->first();
+    $id_product=$products->id;
+    $carts=Carts::where('product_id',$id_product)->first();
+          $quantity= $carts->quantity;
+          if($quantity>1){
+            $quantity= $quantity-1;
+            $price_product=$products->price;
+            $total=$quantity*$price_product;
+            $carts->quantity=$quantity;
+            $carts->total_price=$total;
+            $carts->save();
+          }
+          return redirect('/home/viewCart/ofUser');
+}
+function deleteProductInCart($id){
+Carts::find($id)->delete();
+return redirect('/home/viewCart/ofUser');
 }
 }
