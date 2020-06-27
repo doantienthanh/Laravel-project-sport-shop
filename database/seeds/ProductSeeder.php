@@ -16,7 +16,7 @@ class ProductSeeder extends Seeder
             DB::table('products')->insert([
                 'slug'=>Str::random(10),
                 'name_product' => $faker->name,
-                'image' =>'public/wJVVdQ9scRwVgSedBr0EKQM4haY0utbiCQPsWwHh.jpeg',
+                'image' =>'public/5BmwxLpKIpGpoxnumGyJic9Z4A93CqjZ8gyKmcK9.jpeg',
                 'price' =>$faker->numberBetween($min=200000,$max=1000000),
                 'old_price'=>$faker->numberBetween($min=200000,$max=1000000),
                 'discount'=>$faker->numberBetween($min=1,$max=100),

@@ -18,8 +18,8 @@ class CreateProductsTable extends Migration
             $table->string('slug')->unique();
             $table->string('name_product');
             $table->string('image');
-            $table->float('price');
-            $table->float('old_price')->nullable();
+            $table->bigInteger('price');
+            $table->bigInteger('old_price')->nullable();
             $table->float('discount')->nullable();
             $table->integer('quantity');
             $table->date('date_create');

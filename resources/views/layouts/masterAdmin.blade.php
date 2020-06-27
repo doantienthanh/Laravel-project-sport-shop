@@ -84,7 +84,7 @@
                                 style="font-size:30px;color:while;"></i>&nbsp; <span style="color:black;">Thanh toán
                             </span></a><br><br><br><br><br>
 
-                        <a type="button"
+                        <a href="/admin/management/AddMoneyOfUser"
                             style="width:100%; height:1.2cm;text-align: center;font-size: 20px; padding: 5px 5px; "
                             class="btn btn-outline-secondary"><i class="fas fa-money-check-alt"
                                 style="font-size:30px;color:while;"></i>&nbsp; <span style="color:black;">QL Nạp

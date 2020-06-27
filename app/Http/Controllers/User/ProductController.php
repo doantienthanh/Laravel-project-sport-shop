@@ -103,4 +103,5 @@ function deleteProductInCart($id){
 Carts::find($id)->delete();
 return redirect('/home/viewCart/ofUser');
 }
+
 }

@@ -17,7 +17,7 @@
             <div class="card-footer">
                 @if(Auth::user())
                 <div class="row" style="float:left;">
-                        <a href="/user/viewDetail/{{$product->id}}" class="btn btn-info" id="btnbtn"
+                        <a href="/home/viewDetailProducts/{{$product->slug}}" class="btn btn-info" id="btnbtn"
                             style='font-size:20px;margin-left:10px;width:100px;;' type="button"><i
                                 class='fas fa-eye'></i></a>
                         <span><a href="/home/user/product/addtocart/{{$product->slug}}" type="button"

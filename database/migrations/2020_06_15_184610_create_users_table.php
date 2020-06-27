@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->date('dob')->nullable();
             $table->string('password');
             $table->string('position')->nullable();
+            $table->bigInteger('money')->nullable();
             $table->timestamps();
             $table->charset = 'utf8mb4';
         });
