@@ -20,8 +20,14 @@
                     <td><?php echo $i+=1;?></td>
                     <td class="text-center">{{$payment->users->fullName}}</td>
                     <td class="text-center">{{$payment->getMoney()}}</td>
-                    <td><button class="btn btn-success" type="submit" style="width:100px;height:1.2cm;"><i
+                    <td>
+                        <form action="/admin/managementAddMoney/Accept/{{$payment->id}}" method="post">
+                            @csrf
+                            @method('Patch')
+                            <button class="btn btn-success" type="submit" style="width:100px;height:1.2cm;"><i
                                 class='fas fa-check-circle' style='font-size:24px'></button></td>
+                        </form>
+
                     <td>
                     <form action="/admin/managementAddMoney/delete/{{$payment->id}}" method="post">
                     @csrf

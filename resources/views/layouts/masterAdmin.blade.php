@@ -50,7 +50,7 @@
                         <a  href="/admin/dashboard"
                             style="width:100%; height:1.2cm;text-align: center;font-size: 20px; padding: 5px 5px; "
                             class="btn btn-outline-secondary"><i class="fa fa-dashboard"
-                                style="font-size:30px;color:while;"></i>&nbsp; <span
+                                style="font-size:30px;color:red;"></i>&nbsp; <span
                                 style="color:black;">Dashboard</span></a><br><br><br><br><br>
                         <a  href="/admin/dashboard"
                             style="width:100%; height:1.2cm;text-align: center;font-size: 20px; padding: 5px 5px; "
@@ -78,7 +78,7 @@
                             class="btn btn-outline-secondary"><i class="fas fa-comment"
                                 style="font-size:30px;color:while;"></i>&nbsp; <span style="color:black;">QL Bình
                                 luận</span></a><br><br><br><br><br>
-                        <a type="button"
+                        <a type="button" href="/admin/management/payments"
                             style="width:100%; height:1.2cm;text-align: center;font-size: 20px; padding: 5px 5px; "
                             class="btn btn-outline-secondary"><i class="fab fa-cc-apple-pay"
                                 style="font-size:30px;color:while;"></i>&nbsp; <span style="color:black;">Thanh toán

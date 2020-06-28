@@ -18,7 +18,7 @@
                 @if(Auth::user())
                 <div class="row" style="float:left;">
                         <a href="/home/viewDetailProducts/{{$product->slug}}" class="btn btn-info" id="btnbtn"
-                            style='font-size:20px;margin-left:10px;width:100px;;' type="button"><i
+                            style='font-size:20px;margin-left:5px;width:100px;;' type="button"><i
                                 class='fas fa-eye'></i></a>
                         <span><a href="/home/user/product/addtocart/{{$product->slug}}" type="button"
                                 id="btnbtn" class="btn btn-info" style='font-size:20px;margin-left:4px;width:100px;;'><i
@@ -30,7 +30,7 @@
                         style='font-size:20px;margin-left:5px;width:100px;' type="button"><i class='fas fa-eye'></i></a>
                     <span>
                     <a href="#" type="button" id="btnbtn" class="btn btn-info" data-toggle="modal"
-                            data-target="#loginModol" style='font-size:20px;margin-left:5px;width:150%;'><i
+                            data-target="#loginModol" style='font-size:20px;margin-left:5px;width:100px;'><i
                                 class="fa fa-shopping-cart"></i></a></span>
                 </div>
                 @endif

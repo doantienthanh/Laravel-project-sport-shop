@@ -34,16 +34,23 @@ Route::DELETE('/admin/editProduct/{id}', 'Admin\ManagemetProductController@updat
 // Admin  management user
 Route::get('/admin/management/AddMoneyOfUser', 'Admin\ManagemetUserController@returnPagesManagement');
 Route::Delete('/admin/managementAddMoney/delete/{id}', 'Admin\ManagemetUserController@deleteAddMoney');
+Route::Patch('/admin/managementAddMoney/Accept/{id}','Admin\ManagemetUserController@acceptAddMoney');
+Route::get('/admin/management/payments','Admin\ManagemetUserController@getPayment');
+
 
 //User Product
 Route::get('/home/allProduct','User\HomeController@getAllProduct');
 Route::get('/home/viewDetailProducts/{slug}','User\ProductController@viewDetails');
+
+
+// User Cart
 Route::get('/home/viewCart/ofUser',"User\ProductController@viewCart");
 Route::get('/home/user/product/addtocart/{slug}','User\ProductController@addToCart');
 Route::PATCH('/home/user/addQuantityInCart{slug}',"User\ProductController@addQuantity");
 Route::PATCH('/home/user/minusQuantityInCart{slug}',"User\ProductController@minusQuantity");
 Route::DELETE('/home/user/delete{id}',"User\ProductController@deleteProductInCart");
-
-// User management User
+Route::post('/home/userUseCode',"User\ProductController@useCode");
+Route::post('/home/user/paymentProduct',"User\ProductController@order");
+// Admin management User
 Route::POST('/user/addMoney',"User\ManagementUserController@addMoney");
 

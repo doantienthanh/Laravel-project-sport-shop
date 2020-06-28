@@ -38,8 +38,11 @@
           </div>
         </div>
         </div>
-        <button class="btn btn-info" type="button"  style="width:60%;height:1.5cm;margin-top: 30px;margin-left: 20%;">Thêm vào giỏ hàng</button>
-      </div>
+        <form action="/home/user/product/addtocart/{{$products->slug}}" method="get">
+            @csrf
+        <button class="btn btn-info" type="submit"  style="width:60%;height:1.5cm;margin-top: 30px;margin-left: 20%;">Thêm vào giỏ hàng</button>
+    </form>
+    </div>
     @endforeach
   </div>
 

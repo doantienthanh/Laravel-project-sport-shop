@@ -30,24 +30,20 @@
             <tbody>
                 <?php $i=0;?>
                 <?php $totalPriceCart=0;
-                $total=0; 
                ?>
                 @foreach($carts as $cart)
-                <?php $total+=$cart->total_price;
-                $totalPriceCart=$totalPriceCart+$total;
-               
+                <?php $totalPriceCart+=$cart->total_price;
                 ?>
                <tr>
                     <td><b style="margin-top:100px;"><?php echo $i=$i+1;?></b></td>
-                    @foreach ($cart->product as $products)
-                    <td>{{$products->name_product}}</td>
-                   
-                    <td> <img src="{{'/storage/'. $products->image}}" style="width:100px;hieght:100px;"></td>
-                 <td>  
+                    <td>{{$cart->product->name_product}}</td>
+
+                    <td> <img src="{{'/storage/'. $cart->product->image}}" style="width:100px;hieght:100px;"></td>
+                 <td>
                  <div class="row">
 
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                        <form action="/home/user/addQuantityInCart{{$products->slug}}" method="post">
+                        <form action="/home/user/addQuantityInCart{{$cart->product->slug}}" method="post">
                             @csrf
                             @method('PATCH')
                         <button class="btn btn-light" type="submit" style="margin-top:5px;margin-left:20px;width: 40;height: 30px;"><b>+</b>
@@ -59,7 +55,7 @@
                 </div>
 
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                    <form action="/home/user/minusQuantityInCart{{$products->slug}}" method="post">
+                    <form action="/home/user/minusQuantityInCart{{$cart->product->slug}}" method="post">
                         @csrf
                         @method('PATCH')
                         <button class="btn btn-light" type="submit" style="margin-top:5px; margin-right:30px;width: 40px;height: 30px;">-</button>
@@ -74,24 +70,32 @@
                         <button class="btn btn-danger" type="submit" style="margin-top:10px;width:100px;margin-top:6px;">
                         <i class='fas fa-trash' style='font-size:24px'></i></button>
                         </form>
-                        @endforeach
+
                     </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
-   <div class="row"> 
+   <div class="row">
        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-       <button class="btn btn-light" type="button" style="width:50%; height:1.5cm;margin-top:20px;">MÃ GIẢM GIÁ</button>
+       <button class="btn btn-light" type="button" style="width:50%; height:1.5cm;margin-top:20px;" data-toggle="modal" data-target="#useCode">MÃ GIẢM GIÁ</button>
        </div>
        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
        <button class="btn btn-light" type="button" style="width:50%; height:1.5cm;margin-top:20px;float:right;color:red;" name="total_priceOrder"><b><?php echo  $price=number_format($totalPriceCart)." VND";;?></b></button>
        </div>
    </div>
-    <button class="btn btn-info" type="button" style="width:70%; height:1.5cm;margin-left:15%;margin-top:50px;"><b>TIẾN HÀNH THANH TOÁN</b></button>
+  <form action="/home/user/paymentProduct" method="post">
+    @csrf
+    <br> <br>
+    @if (session('status'))
+    <div class="alert alert-danger" style="text-align: center">{{session('status')}}</div>
+@endif
+    <button class="btn btn-info" type="submit" style="width:70%; height:1.5cm;margin-left:15%;margin-top:50px;"><b>TIẾN HÀNH THANH TOÁN</b></button>
+  </form>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
     <script src="/js/app.js"></script>
 </body>
 </html>
+

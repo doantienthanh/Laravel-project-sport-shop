@@ -2,7 +2,9 @@
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\hash;
+use Illuminate\Support\Facades\auth;
 class UserSeeder extends Seeder
 {
     /**
@@ -12,8 +14,8 @@ class UserSeeder extends Seeder
      */
     public function run(FAKER $faker)
     {
-        
-        for( $i=0; $i<5; $i++){ 
+
+        for( $i=0; $i<5; $i++){
             DB::table('users')->insert([
                 'fullName' => $faker->name,
                 'email' => $faker->unique()->safeEmail,

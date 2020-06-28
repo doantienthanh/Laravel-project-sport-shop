@@ -6,6 +6,7 @@
   <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
   <ul class="navbar-nav" style=" float: right;">
   @if(Auth::user())
+  <li class="nav-item active"><i class='fas fa-user-alt'></i>&ensp;{{Auth::user()->getMoney()}}</li>&ensp;
   <li class="nav-item active"><i class='fas fa-user-alt'></i>&ensp;{{Auth::user()->fullName}}</li>&ensp;
                 <form action="/user-logout" method="post">
                     @csrf
@@ -20,9 +21,9 @@
                 </li>
                 @endif
             </ul>
-           
+
         </div>
-  </div>  
+  </div>
 </nav>
 <!-- The Modal login -->
 <div class="modal" id="loginModol">

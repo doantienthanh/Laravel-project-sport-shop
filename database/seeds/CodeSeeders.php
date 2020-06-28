@@ -1,8 +1,7 @@
 <?php
-
 use Illuminate\Database\Seeder;
-
-class CodesSeeder extends Seeder
+use Illuminate\Support\Facades\DB;
+class CodeSeeders extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,6 +17,6 @@ class CodesSeeder extends Seeder
                'code'=>$code[$i],
                'discount'=>$dis[$i]
             ]);
-        }
+    }
     }
 }

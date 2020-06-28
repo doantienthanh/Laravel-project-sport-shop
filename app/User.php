@@ -36,4 +36,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    function getMoney(){
+        $formatedPrice=number_format($this->money,0,',','.');
+        return $formatedPrice." VND";
+     }
 }

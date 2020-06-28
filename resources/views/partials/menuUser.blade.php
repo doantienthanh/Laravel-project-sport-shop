@@ -64,3 +64,29 @@
         </div>
     </div>
 </div>
+<div class="modal" id="useCode">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h2 class="text-center" style="color:red;margin-left:30%;">ÁP DỤNG MÃ GIẢM GIÁ</h2>
+                <button type="button" class="close" data-dismiss="modal" style="color:red;">X</button>
+            </div>
+            <!-- Modal body -->
+            <form action="/home/userUseCode" method="post" enctype="multipart/form-data">
+                @csrf
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="text" name="codes" id="codes" class="form-control" placeholder="Nhập mã giảm giá"
+                            aria-describedby="helpId">
+                    </div>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button class="btn btn-info" type="submit" style="width:100%;height:50px;font-size:20px;">ÁP DỤNG</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

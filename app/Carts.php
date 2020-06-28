@@ -7,7 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Carts extends Model
 {
     public function product(){
-        return $this->beLongsToMany("App\Products","carts","id","product_id");
+        return $this->belongsTo("App\Products","product_id","id");
+    }
+    public function user(){
+        return $this->hasMany("App\User","id","user_id");
     }
 
     function getPriceTotal(){

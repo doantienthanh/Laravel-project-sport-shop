@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 class ProductSeeder extends Seeder
 {
     /**
@@ -12,7 +13,7 @@ class ProductSeeder extends Seeder
      */
     public function run(FAKER $faker)
     {
-        for( $i=0; $i<10; $i++){ 
+        for( $i=0; $i<10; $i++){
             DB::table('products')->insert([
                 'slug'=>Str::random(10),
                 'name_product' => $faker->name,
