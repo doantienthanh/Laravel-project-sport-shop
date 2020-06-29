@@ -1,7 +1,8 @@
 <?php
+
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-class CodeSeeders extends Seeder
+
+class CodeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -10,13 +11,13 @@ class CodeSeeders extends Seeder
      */
     public function run()
     {
-        $code=['PHP','LARAVEL','CSS','HTML'];
-        $dis=[50,30,20,10];
-        for($i=0;$i<4;$i++){
+        $code=['HTML','PHP','JS'];
+        $dis=[15,50,90];
+        for($i=0;$i<3;$i++){
             DB::table('codes')->insert([
                'code'=>$code[$i],
                'discount'=>$dis[$i]
             ]);
-    }
+        }
     }
 }

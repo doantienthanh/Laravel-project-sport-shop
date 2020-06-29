@@ -41,6 +41,9 @@ Route::get('/admin/management/payments','Admin\ManagemetUserController@getPaymen
 //User Product
 Route::get('/home/allProduct','User\HomeController@getAllProduct');
 Route::get('/home/viewDetailProducts/{slug}','User\ProductController@viewDetails');
+Route::get('/home/sortAscending/Product','User\ProductController@sortAscending');
+Route::get('/home/sortDescending/Product','User\ProductController@sortDescending');
+Route::get('/userView/{id}','User\HomeController@viewProductByCategory');
 
 
 // User Cart

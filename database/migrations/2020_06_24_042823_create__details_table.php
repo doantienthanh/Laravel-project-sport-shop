@@ -17,10 +17,10 @@ class CreateDetailsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-            $table->string('color');
-            $table->string('sole');
-            $table->float('weight');
-            $table->string('description');
+            $table->string('color')->nullable();
+            $table->string('sole')->nullable();
+            $table->float('weight')->nullable();
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }

@@ -17,9 +17,13 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#"><b>GIẢM GIÁ</b></a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#"><b>XẾP THEO</b></a>
-                </li>
+                <li class="nav-item dropdown" style="color:while;">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Sắp xếp</a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="/home/sortAscending/Product"><i class='fas fa-sort-amount-up' style='font-size:24px;color:black;'></i><span>Tăng</span></a>
+      <a class="dropdown-item" href="/home/sortDescending/Product"><i class='fas fa-sort-amount-down-alt' style='font-size:24px;color:black';></i><span>Giảm</span></a>
+    </div>
+  </li>
                 <li class="nav-item active">
                     <a class="nav-link disabled" href="#"><b>LIÊN HỆ</b></a>
                 </li>

@@ -1,6 +1,6 @@
 <div class="card-deck">
     @foreach($products as $product)
-    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
         <div class="card border-success text-black bg-light mt-5"
             style="width:100%;height:500px;margin-top:20px;margin-bottom:20px;">
             <div class="card-header">

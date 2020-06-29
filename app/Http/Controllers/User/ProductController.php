@@ -173,4 +173,18 @@ class ProductController extends Controller
         return redirect('/home/viewCart/ofUser');
         }
     }
+
+    // Sắp xếp sản phẩm tăng dần
+    function sortAscending(){
+        $product=Products::all();
+        $sorted = $product->sortBy('price');
+        $products=$sorted->values()->all();  
+        return view('users.sortAscending',['products'=>$products]);
+    }
+    // Sắp xếp giảm dần
+    function sortDescending(){
+        $products=Products::where('price','!=',0)->orderBy('price','desc')->get();
+        return view('users.sortAscending',['products'=>$products]);
+    }
+    
 }
