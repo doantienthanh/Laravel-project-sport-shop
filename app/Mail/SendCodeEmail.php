@@ -29,6 +29,6 @@ class SendCodeEmail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Email from TienThanhSport shop')->view('users.sendCodeEmail');
+        return $this->subject('Email from TienThanhSport shop')->view('users.sendCodeEmail')->with('data',$this->data);
     }
 }

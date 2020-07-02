@@ -51,17 +51,22 @@
                             style="width:100%; height:1.2cm;text-align: center;font-size: 20px; padding: 5px 5px; "
                             class="btn btn-outline-secondary"><i class="fa fa-dashboard"
                                 style="font-size:30px;color:red;"></i>&nbsp; <span
-                                style="color:black;">Dashboard</span></a><br><br><br><br><br>
-                                <a  href="/admin/dashboard"
+                                style="color:black;">Dashboard</span></a><br><br><br><br>
+
+                                <a  href="/admin/getAllUsers"
                             style="width:100%; height:1.2cm;text-align: center;font-size: 20px; padding: 5px 5px; "
                             class="btn btn-outline-secondary"><i class="fas fa-users"
-                                style="font-size:30px;color:while;">&nbsp;</i><span style="color:black;">Users</span>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;</a><br><br><br><br><br>
-                        <div class="dropdown dropright">
+                                style="font-size:30px;color:while;">&nbsp;</i><span style="color:black;">Users</span>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;</a><br><br><br><br>
+
+
+                                <div class="dropdown dropright">
                             <button type="button" class="btn btn-outline-secondary dropdown-toggle"  style="width:100%; height:1.2cm;text-align: center;font-size: 20px; padding: 5px 5px; " data-toggle="dropdown">
                                 <i class="fa fa-database" style="font-size:30px;color:while;"></i>&nbsp; <span
                                     style="color:black; ">Products</span>
                             </button>
                             <div class="dropdown-menu"><br><br>
+                                <a class="dropdown-item" href="/admin/getAllProducts" style=" padding: 5px 5px;font-size: 20px;
+                                text-align: center;">Tất cả các sản phẩm</a> <br><br>
                                 <a class="dropdown-item" href="/admin/Product/Create" style=" padding: 5px 5px;font-size: 20px;
         text-align: center;">Thêm sản phẩm</a> <br><br>
                                 <a class="dropdown-item" href="/admin/FindProduct/delete" style=" padding: 5px 5px;font-size: 20px;
@@ -69,30 +74,48 @@
                                 <a class="dropdown-item" href="/admin/FindProduct/toEdit" style=" padding: 5px 5px;font-size: 20px;
         text-align: center;">Sửa sản phẩm</a><br>
                             </div>
-                        </div><br><br><br><br><br>
+                        </div><br><br><br><br>
 
-                        <a type="button"
-                            style="width:100%; height:1.2cm;text-align: center;font-size: 20px; padding: 5px 5px; "
-                            class="btn btn-outline-secondary"><i class="fas fa-comment"
-                                style="font-size:30px;color:while;"></i>&nbsp; <span style="color:black;">Comments</span></a><br><br><br><br><br>
-                        <a type="button" href="/admin/management/payments"
+                                <a type="button" href="/admin/management/payments"
                             style="width:100%; height:1.2cm;text-align: center;font-size: 20px; padding: 5px 5px; "
                             class="btn btn-outline-secondary"><i class="fab fa-cc-apple-pay"
                                 style="font-size:30px;color:while;"></i>&nbsp;&nbsp;  <span style="color:black;">Payments
-                            </span></a><br><br><br><br><br>
+                            </span></a><br><br><br><br>
 
 
                             <a href="/admin/management/AddMoneyOfUser"
                             style="width:100%; height:1.2cm;text-align: center;font-size: 20px; padding: 5px 5px; "
                             class="btn btn-outline-secondary"><i class="fas fa-money-check-alt"
-                                style="font-size:30px;color:while;"></i>&nbsp;  <span style="color:black;">Money</span>&nbsp; &nbsp; &nbsp;&nbsp;</a><br><br><br><br><br>
+                                style="font-size:30px;color:while;"></i>&nbsp;  <span style="color:black;">Money</span>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</a><br><br><br><br>
 
                                 <a type="button"
-                            style="width:100%; height:1.2cm;text-align: center;font-size: 20px; padding: 5px 5px; "
-                            class="btn btn-outline-secondary"><i class="fa fa-dashboard"
-                                style="font-size:30px;color:black;"></i>&nbsp; <span
-                                style="color:while;">Setting</span></a><br><br><br><br><br>
-                    </div>
+                                style="width:100%; height:1.2cm;text-align: center;font-size: 20px; padding: 5px 5px; "
+                                class="btn btn-outline-secondary"><i class="fas fa-comment"
+                                    style="font-size:30px;color:while;"></i>&nbsp; <span style="color:black;">Comments</span>&nbsp;</a><br><br><br><br>
+
+
+                                <a href="/admin/getAllCompany" type="button"
+                                style="width:100%; height:1.2cm;text-align: center;font-size: 20px; padding: 5px 5px; "
+                                class="btn btn-outline-secondary"><i class="fas fa-building"
+                                    style="font-size:30px;color:while;"></i>&nbsp; <span style="color:black;">Companies</span>&nbsp;</a><br><br><br><br>
+
+
+                                <a href="/admin/getAllCategory" type="button"
+                                style="width:100%; height:1.2cm;text-align: center;font-size: 20px; padding: 5px 5px; "
+                                class="btn btn-outline-secondary"><i class="fa fa-th"
+                                    style="font-size:30px;color:while;"></i>&nbsp; <span style="color:black;">Categories</span>&nbsp;</a><br><br><br><br>
+
+
+                                <a href="/admin/getAllSize" type="button"
+                                style="width:100%; height:1.2cm;text-align: center;font-size: 20px; padding: 5px 5px; "
+                                class="btn btn-outline-secondary"><i class="fas fa-font"
+                                    style="font-size:30px;color:while;"></i>&nbsp; <span style="color:black;">Sizes Pro</span>&nbsp;&nbsp;&nbsp;</a><br><br><br><br>
+
+                                    <a href="/admin/getAllCompany" type="button"
+                                    style="width:100%; height:1.2cm;text-align: center;font-size: 20px; padding: 5px 5px; "
+                                    class="btn btn-outline-secondary"><i class="fas fa-qrcode"
+                                        style="font-size:30px;color:while;"></i>&nbsp; <span style="color:black;">Code Sale</span>&nbsp;&nbsp;&nbsp;</a><br><br><br><br>
+                                </div>
                 </div>
             </div>
             <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">

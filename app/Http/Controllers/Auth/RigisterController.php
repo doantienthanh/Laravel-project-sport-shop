@@ -17,6 +17,5 @@ class RigisterController extends Controller
                    'body'=>$code
                ];
              Mail::to($request->input('emailRegister'))->send(new SendCodeEmail($data));
-return view('users.sendCodeEmail');
     }
 }

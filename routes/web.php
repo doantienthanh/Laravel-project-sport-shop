@@ -23,6 +23,19 @@ Route::post('/user-logout','Auth\LoginController@logout');
 Route::POST('/SendCodeToUsers',"Auth\RigisterController@sendCodeRegister");
 // Admin
 Route::get('/admin/dashboard', "Admin\DashboardContronller@index")->middleware(checkLogin::class);
+
+// Admin management Database
+Route::GET('/admin/getAllCompany','Admin\DataController@returnAllCompany')->middleware(checkLogin::class);
+Route::POST('/admin/addCompany','Admin\DataController@addCompany')->middleware(checkLogin::class);
+Route::DELETE('/admin/deleteCompany/{id}','Admin\DataController@deleteCompany')->middleware(checkLogin::class);
+
+Route::GET('/admin/getAllCategory','Admin\DataController@returnAllCategory')->middleware(checkLogin::class);
+Route::POST('/admin/addCategory','Admin\DataController@addCategory')->middleware(checkLogin::class);
+Route::DELETE('/admin/deleteCategory/{id}','Admin\DataController@deleteCategory')->middleware(checkLogin::class);
+
+Route::GET('/admin/getAllSize','Admin\DataController@returnAllSize')->middleware(checkLogin::class);
+Route::POST('/admin/addSize','Admin\DataController@addSize')->middleware(checkLogin::class);
+Route::DELETE('/admin/deleteSize/{id}','Admin\DataController@deleteSize')->middleware(checkLogin::class);
 // Admin management Product
 Route::get('/admin/Product/Create', "Admin\ManagemetProductController@getFormAdd")->middleware(checkLogin::class);
 Route::post('/admin/product/addProducts', "Admin\ManagemetProductController@createProduct")->middleware(checkLogin::class);
@@ -31,7 +44,7 @@ Route::delete('/admin/deleteProduct/{slug}', 'Admin\ManagemetProductController@d
 Route::get('/admin/FindProduct/toEdit',"Admin\ManagemetProductController@returnPageEdit")->middleware(checkLogin::class);
 Route::get('admin/product/getForm/edit/{id}', 'Admin\ManagemetProductController@getFormEdit')->middleware(checkLogin::class);
 Route::DELETE('/admin/editProduct/{id}', 'Admin\ManagemetProductController@updateProduct')->middleware(checkLogin::class);
-
+Route::GET('/admin/getAllProducts','Admin\ManagemetProductController@returnAllProducts')->middleware(checkLogin::class);
 
 // Admin  management user
 Route::get('/admin/management/AddMoneyOfUser', 'Admin\ManagemetUserController@returnPagesManagement')->middleware(checkLogin::class);
@@ -40,8 +53,8 @@ Route::Patch('/admin/managementAddMoney/Accept/{id}','Admin\ManagemetUserControl
 Route::get('/admin/management/payments','Admin\ManagemetUserController@getPayment')->middleware(checkLogin::class);
 Route::POST('/user/addMoney',"User\ManagementUserController@addMoney")->middleware(checkLogin::class);
 Route::GET('/admin/viewDetail/Payments/{id}/{ida}',"Admin\ManagemetUserController@viewDetailPayment")->middleware(checkLogin::class);
-
-
+Route::GET('/admin/getAllUsers',"Admin\ManagemetUserController@returnAllUsers")->middleware(checkLogin::class);
+Route::DELETE('/admin/deleteUser/{id}',"Admin\ManagemetUserController@deleteUsers")->middleware(checkLogin::class);
 //User Product
 Route::get('/home/allProduct','User\HomeController@getAllProduct');
 Route::get('/home/viewDetailProducts/{slug}','User\ProductController@viewDetails');

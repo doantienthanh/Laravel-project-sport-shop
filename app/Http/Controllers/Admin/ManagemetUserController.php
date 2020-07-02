@@ -65,5 +65,12 @@ class ManagemetUserController extends Controller
         }
    return view('admin.payment.viewDetailOrder',['products'=>$products,'users'=>$users,'orders'=>$orders]);
                }
+               function returnAllUsers(){
+               $users=User::where('position','user')->get();
+               return view('admin.users.allUsers',['users'=>$users]);
+               }
+               function deleteUsers($id){
+                   User::find($id)->delete();
+                   return redirect('/admin/getAllUsers');
+               }
     }
-

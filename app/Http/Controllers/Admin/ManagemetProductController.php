@@ -143,4 +143,8 @@ for($i=0;$i< count($sizes);$i++){
      $detail->save();
  return redirect('/admin/FindProduct/toEdit');
   }
+  function returnAllProducts(){
+$products=Products::all();
+return view('admin.products.getAllProducts',['products'=>$products]);
+  }
 }
