@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class SendCodeEmail extends Mailable
+class EmailOrder extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -17,10 +17,13 @@ class SendCodeEmail extends Mailable
      * @return void
      */
     public $data;
-    public function __construct($data)
+    public $products;
+    public function __construct($data,$products)
     {
         $this->data=$data;
+        $this->products=$products;
     }
+
 
     /**
      * Build the message.
@@ -29,6 +32,6 @@ class SendCodeEmail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Email mã xác nhận từ TienThanh Sport')->view('users.sendCodeEmail');
+        return $this->subject('ĐƠN ĐẶT HÀNG')->view('admin.payment.orderToUser');
     }
 }

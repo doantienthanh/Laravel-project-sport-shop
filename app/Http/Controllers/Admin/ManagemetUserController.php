@@ -12,6 +12,7 @@ use App\Sizes;
 use App\Details;
 use App\SizeProducts;
 use App\Carts;
+use App\Mail\EmailOrder;
 use App\User;
 use App\Orders;
 use Faker\Provider\ar_SA\Payment;
@@ -73,4 +74,38 @@ class ManagemetUserController extends Controller
                    User::find($id)->delete();
                    return redirect('/admin/getAllUsers');
                }
+
+
+              function adminOrderToUsers($id){
+                $orders=Orders::find($id);
+                $emailUser=$orders->email;
+                $address=$orders->address;
+                $nameUser=$orders->fullNameUserOrder;
+                $date=$orders->created_at;
+                $price=$orders->getTotalPriceOrder();
+                $prices=$orders->totalPriceOrder;
+                $products=[];
+                $id=json_decode($orders->id_allProducts);
+                foreach($id as $ida){
+                  foreach($ida as $item){
+                      $productses=Products::find($item);
+                    array_push($products,$productses);
+                  }
+              }
+              $data=[
+                'title'=>'Email Thông báo đơn hàng',
+                'name'=>$nameUser,
+                'address'=>$address,
+                'price'=>$price,
+                'date'=>$date
+            ];
+          \Mail::to($emailUser)->send(new EmailOrder($data,$products));
+
+          // Trừ tiền của user vừa mới order
+        $id_users=$orders->user_id;
+        $users=User::find($id_users);
+        $users->money-=$prices;
+        $users->save();
+        return redirect('/admin/management/payments');
     }
+}

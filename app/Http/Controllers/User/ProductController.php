@@ -192,6 +192,12 @@ class ProductController extends Controller
         $product = Products::all();
         $sorted = $product->sortBy('price');
         $products = $sorted->values()->all();
+        foreach ($products as $product) {
+            $product->company;
+            $product->category;
+            $product->detail;
+            $product->size;
+        }
         return view('users.sortAscending', ['countCarts' => $countCarts, 'products' => $products]);
     }
     // Sắp xếp giảm dần
@@ -204,6 +210,12 @@ class ProductController extends Controller
             $countCarts = count($carts);
         };
         $products = Products::where('price', '!=', 0)->orderBy('price', 'desc')->get();
+        foreach ($products as $product) {
+            $product->company;
+            $product->category;
+            $product->detail;
+            $product->size;
+        }
         return view('users.sortAscending', ['countCarts' => $countCarts, 'products' => $products]);
     }
     // Tìm kiếm sản phẩm

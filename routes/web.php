@@ -21,6 +21,9 @@ Route::post('/user-logout','Auth\LoginController@logout');
 
 // REGISTER
 Route::POST('/SendCodeToUsers',"Auth\RigisterController@sendCodeRegister");
+Route::GET('/getPageRegister',"Auth\RigisterController@getPageRegister");
+Route::POST('/users/registerAccount',"Auth\RigisterController@registerAccount");
+
 // Admin
 Route::get('/admin/dashboard', "Admin\DashboardContronller@index")->middleware(checkLogin::class);
 
@@ -47,14 +50,17 @@ Route::DELETE('/admin/editProduct/{id}', 'Admin\ManagemetProductController@updat
 Route::GET('/admin/getAllProducts','Admin\ManagemetProductController@returnAllProducts')->middleware(checkLogin::class);
 
 // Admin  management user
+Route::GET('/admin/getAllUsers',"Admin\ManagemetUserController@returnAllUsers")->middleware(checkLogin::class);
+Route::DELETE('/admin/deleteUser/{id}',"Admin\ManagemetUserController@deleteUsers")->middleware(checkLogin::class);
+// Admin management Order
 Route::get('/admin/management/AddMoneyOfUser', 'Admin\ManagemetUserController@returnPagesManagement')->middleware(checkLogin::class);
 Route::Delete('/admin/managementAddMoney/delete/{id}', 'Admin\ManagemetUserController@deleteAddMoney')->middleware(checkLogin::class);
 Route::Patch('/admin/managementAddMoney/Accept/{id}','Admin\ManagemetUserController@acceptAddMoney')->middleware(checkLogin::class);
 Route::get('/admin/management/payments','Admin\ManagemetUserController@getPayment')->middleware(checkLogin::class);
 Route::POST('/user/addMoney',"User\ManagementUserController@addMoney")->middleware(checkLogin::class);
 Route::GET('/admin/viewDetail/Payments/{id}/{ida}',"Admin\ManagemetUserController@viewDetailPayment")->middleware(checkLogin::class);
-Route::GET('/admin/getAllUsers',"Admin\ManagemetUserController@returnAllUsers")->middleware(checkLogin::class);
-Route::DELETE('/admin/deleteUser/{id}',"Admin\ManagemetUserController@deleteUsers")->middleware(checkLogin::class);
+Route::POST('/admin/orderProductsToUsers/{id}',"Admin\ManagemetUserController@adminOrderToUsers")->middleware(checkLogin::class);
+
 //User Product
 Route::get('/home/allProduct','User\HomeController@getAllProduct');
 Route::get('/home/viewDetailProducts/{slug}','User\ProductController@viewDetails');

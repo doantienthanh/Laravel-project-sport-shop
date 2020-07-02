@@ -9,10 +9,16 @@
                 @endif
                 <img class="card-img-top" src="{{'/storage/'. $product->image}}" alt="Card image"
                     style="width:100%;height:250px;"></div>
-            <div class="card-body" id="bodyCard">
-                <h4 class="card-title" style="text-align:center;">{{$product->name_product}}</h4> <br>
-                <p class="card-text" style="color:black;">{{$product->price}}<sub>
-                        &emsp;<strike>{{$product->old_price}}</strike></sub></p>
+            <div class="card-body">
+                    <h4 class="card-title" style="text-align:center;">{{$product->name_product}}</h4>
+                    <p class="card-text" style="color:black;">Hãng:<span style="float:right;">
+                        {{$product->company->name_company}}</b></span>
+                    <hr>
+                    <p class="card-text" style="color:black;">GIÁ:<span style="float:right;">
+                            {{$product->getPrice()}}</b></span>
+                        <hr>
+                        <p class="card-text" style="color:black;">GIÁ CỦ: <span
+                                style="float:right;">{{$product->getOldPrice()}}</span></p>
             </div>
             <div class="card-footer">
                 @if(Auth::user())
@@ -39,3 +45,5 @@
     </div>
     @endforeach
 </div>
+
+

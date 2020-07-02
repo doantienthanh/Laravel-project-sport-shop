@@ -22,6 +22,12 @@ class HomeController extends Controller
         $sizes=Sizes::all();
         $productByCategories=Products::where('category_id',$id)->limit(4)->get();
         $products=Products::where('category_id',$id)->limit(4)->get();
+        foreach ($products as $product) {
+            $product->company;
+            $product->category;
+            $product->detail;
+            $product->size;
+        }
                     return view('users.viewProductByCategory',['countCarts'=>$countCarts,"categoryActive"=>$id,'productByCategories'=>$productByCategories,'products'=>$products,'categories'=>$categories,'sizes'=>$sizes]);
     }
     function index()
@@ -37,6 +43,12 @@ class HomeController extends Controller
         $products=Products::where('date_create','!=',null)->orderBy('date_create','desc')->limit(8)->get();
         $productDiscounts=Products::where('discount','!=',0)->limit(8)->get();
         $sizes=Sizes::all();
+        foreach ($products as $product) {
+            $product->company;
+            $product->category;
+            $product->detail;
+            $product->size;
+        }
         return view('index', ['sizes'=>$sizes,'countCarts'=>$countCarts,'categories' => $categories,'products'=>$products,'productDiscounts'=>$productDiscounts]);
     }
     function getAllProduct()
@@ -45,8 +57,15 @@ class HomeController extends Controller
            $id_user = Auth::user()->id;
            $carts = Carts::where('user_id', $id_user)->get();
            $countCarts=count($carts);
+
        };
         $products = Products::all();
+        foreach ($products as $product) {
+            $product->company;
+            $product->category;
+            $product->detail;
+            $product->size;
+        }
         return view('users.getAllProduct', ['products' => $products,'countCarts'=>$countCarts]);
     }
 }

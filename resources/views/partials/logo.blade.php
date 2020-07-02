@@ -24,6 +24,9 @@
                     @if (session('status'))
                     <div class="alert alert-danger" style="text-align: center">{{session('status')}}</div>
                 @endif
+                @if (session('registered'))
+                <div class="alert alert-danger" style="text-align: center">{{session('registered')}}</div>
+            @endif
                 @if (session('loginFeils'))
                 <div class="alert alert-danger" style="text-align: center">{{session('loginFeils')}}</div>
             @endif

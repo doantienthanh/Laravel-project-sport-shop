@@ -31,7 +31,11 @@
         <p style="color: black;">Tên người đặt hàng: <b style="color: red">{{$users->fullName}}</b> </p> <br><br>
         <p style="color: black;">Email người nhận: <b style="color: red">{{$users->email}}</b></p><br><br>
         <p style="color: black;">Địa chỉ người nhận: <b style="color: red">{{$users->address}}</b></p><br><br>
-    <button class="btn btn-light" type="button" style="width:50%; height:1.5cm;margin-top:20px;">TIẾN HÀNH GIAO HÀNG</button>
+        <p style="color: black;">Ngày đặt hàng: <b style="color: red">{{$orders->created_at}}</b></p><br><br>
+   <form action="/admin/orderProductsToUsers/{{$orders->id}}" method="get">
+@csrf
+    <button class="btn btn-light" type="submit" style="width:50%; height:1.5cm;margin-top:20px; margin-bottom: 20px;">TIẾN HÀNH GIAO HÀNG</button>
+   </form>
     </div>
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
     <button class="btn btn-light" type="button" style="width:50%; height:1.5cm;margin-top:20px;float:right;color:red;" name="total_priceOrder"><b>{{$orders->getTotalPriceOrder()}}</b></button>
