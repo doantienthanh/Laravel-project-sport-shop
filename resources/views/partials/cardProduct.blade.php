@@ -1,7 +1,7 @@
 <div class="card-deck">
     @foreach($products as $product)
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-        <div class="card border-success text-black bg-light mt-5"
+        <div class="card text-black bg-black mt-5"id="cardCss"
             style="width:100%;height:500px;margin-top:20px;margin-bottom:20px;">
             <div class="card-header">
                 @if($product->discount != 0.00 )

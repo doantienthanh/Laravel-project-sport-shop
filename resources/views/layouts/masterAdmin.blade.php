@@ -45,24 +45,21 @@
             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                 <div class="row">
                     <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10"
-                        style="width:100px;height:900px;background-color: #6c757d;">
+                        style="width:100px;height:700px;background-color: #6c757d;">
                         <br>
                         <a  href="/admin/dashboard"
                             style="width:100%; height:1.2cm;text-align: center;font-size: 20px; padding: 5px 5px; "
                             class="btn btn-outline-secondary"><i class="fa fa-dashboard"
                                 style="font-size:30px;color:red;"></i>&nbsp; <span
                                 style="color:black;">Dashboard</span></a><br><br><br><br><br>
-                        <a  href="/admin/dashboard"
+                                <a  href="/admin/dashboard"
                             style="width:100%; height:1.2cm;text-align: center;font-size: 20px; padding: 5px 5px; "
                             class="btn btn-outline-secondary"><i class="fas fa-users"
-                                style="font-size:30px;color:while;"></i>&nbsp; <span style="color:black;">QL Người
-                                dùng</span></a><br><br><br><br><br>
-
+                                style="font-size:30px;color:while;">&nbsp;</i><span style="color:black;">Users</span>&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;</a><br><br><br><br><br>
                         <div class="dropdown dropright">
                             <button type="button" class="btn btn-outline-secondary dropdown-toggle"  style="width:100%; height:1.2cm;text-align: center;font-size: 20px; padding: 5px 5px; " data-toggle="dropdown">
                                 <i class="fa fa-database" style="font-size:30px;color:while;"></i>&nbsp; <span
-                                    style="color:black; ">QL Sản
-                                    phẩm</span>
+                                    style="color:black; ">Products</span>
                             </button>
                             <div class="dropdown-menu"><br><br>
                                 <a class="dropdown-item" href="/admin/Product/Create" style=" padding: 5px 5px;font-size: 20px;
@@ -73,28 +70,28 @@
         text-align: center;">Sửa sản phẩm</a><br>
                             </div>
                         </div><br><br><br><br><br>
+
                         <a type="button"
                             style="width:100%; height:1.2cm;text-align: center;font-size: 20px; padding: 5px 5px; "
                             class="btn btn-outline-secondary"><i class="fas fa-comment"
-                                style="font-size:30px;color:while;"></i>&nbsp; <span style="color:black;">QL Bình
-                                luận</span></a><br><br><br><br><br>
+                                style="font-size:30px;color:while;"></i>&nbsp; <span style="color:black;">Comments</span></a><br><br><br><br><br>
                         <a type="button" href="/admin/management/payments"
                             style="width:100%; height:1.2cm;text-align: center;font-size: 20px; padding: 5px 5px; "
                             class="btn btn-outline-secondary"><i class="fab fa-cc-apple-pay"
-                                style="font-size:30px;color:while;"></i>&nbsp; <span style="color:black;">Thanh toán
+                                style="font-size:30px;color:while;"></i>&nbsp;&nbsp;  <span style="color:black;">Payments
                             </span></a><br><br><br><br><br>
 
-                        <a href="/admin/management/AddMoneyOfUser"
+
+                            <a href="/admin/management/AddMoneyOfUser"
                             style="width:100%; height:1.2cm;text-align: center;font-size: 20px; padding: 5px 5px; "
                             class="btn btn-outline-secondary"><i class="fas fa-money-check-alt"
-                                style="font-size:30px;color:while;"></i>&nbsp; <span style="color:black;">QL Nạp
-                                tiền</span></a><br><br><br><br><br>
-                        <a type="button"
+                                style="font-size:30px;color:while;"></i>&nbsp;  <span style="color:black;">Money</span>&nbsp; &nbsp; &nbsp;&nbsp;</a><br><br><br><br><br>
+
+                                <a type="button"
                             style="width:100%; height:1.2cm;text-align: center;font-size: 20px; padding: 5px 5px; "
                             class="btn btn-outline-secondary"><i class="fa fa-dashboard"
                                 style="font-size:30px;color:black;"></i>&nbsp; <span
-                                style="color:while;">Dashboard</span></a><br><br><br><br><br>
-
+                                style="color:while;">Setting</span></a><br><br><br><br><br>
                     </div>
                 </div>
             </div>

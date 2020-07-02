@@ -35,7 +35,7 @@
                             <input id="image" class="form-control" type="file" name="image" placeholder="image"><br>
                         </div>
                      </div>
-                     
+
                      <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
                      <div class="form-group">
                      <select class="form-control" id="sizes" name="sizes[]" multiple>
@@ -54,7 +54,7 @@
                            <textarea name="description"  class="form-control" id="description"  placeholder="Mô tả sản phẩm"></textarea>
                         </div>
                      </div>
-              </div> 
+              </div>
                         <button class="btn btn-info" type="submit" style="width:80%;margin-left:10%;height:1.5cm;">Thêm
                             sản phẩm</button>
                     </form>

@@ -1,7 +1,6 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Middleware\checkLogin;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,23 +18,28 @@ Route::get("/{category}","User\HomeController@index");
 // LOGIN
 Route::post("/userLogin","Auth\LoginController@login");
 Route::post('/user-logout','Auth\LoginController@logout');
+
+// REGISTER
+Route::POST('/SendCodeToUsers',"Auth\RigisterController@sendCodeRegister");
 // Admin
-Route::get('/admin/dashboard', "Admin\DashboardContronller@index");
+Route::get('/admin/dashboard', "Admin\DashboardContronller@index")->middleware(checkLogin::class);
 // Admin management Product
-Route::get('/admin/Product/Create', "Admin\ManagemetProductController@getFormAdd");
-Route::post('/admin/product/addProducts', "Admin\ManagemetProductController@createProduct");
-Route::get('/admin/FindProduct/delete',"Admin\ManagemetProductController@returnPageDelete");
-Route::delete('/admin/deleteProduct/{slug}', 'Admin\ManagemetProductController@deleteProduct');
-Route::get('/admin/FindProduct/toEdit',"Admin\ManagemetProductController@returnPageEdit");
-Route::get('admin/product/getForm/edit/{id}', 'Admin\ManagemetProductController@getFormEdit');
-Route::DELETE('/admin/editProduct/{id}', 'Admin\ManagemetProductController@updateProduct');
+Route::get('/admin/Product/Create', "Admin\ManagemetProductController@getFormAdd")->middleware(checkLogin::class);
+Route::post('/admin/product/addProducts', "Admin\ManagemetProductController@createProduct")->middleware(checkLogin::class);
+Route::get('/admin/FindProduct/delete',"Admin\ManagemetProductController@returnPageDelete")->middleware(checkLogin::class);
+Route::delete('/admin/deleteProduct/{slug}', 'Admin\ManagemetProductController@deleteProduct')->middleware(checkLogin::class);
+Route::get('/admin/FindProduct/toEdit',"Admin\ManagemetProductController@returnPageEdit")->middleware(checkLogin::class);
+Route::get('admin/product/getForm/edit/{id}', 'Admin\ManagemetProductController@getFormEdit')->middleware(checkLogin::class);
+Route::DELETE('/admin/editProduct/{id}', 'Admin\ManagemetProductController@updateProduct')->middleware(checkLogin::class);
 
 
 // Admin  management user
-Route::get('/admin/management/AddMoneyOfUser', 'Admin\ManagemetUserController@returnPagesManagement');
-Route::Delete('/admin/managementAddMoney/delete/{id}', 'Admin\ManagemetUserController@deleteAddMoney');
-Route::Patch('/admin/managementAddMoney/Accept/{id}','Admin\ManagemetUserController@acceptAddMoney');
-Route::get('/admin/management/payments','Admin\ManagemetUserController@getPayment');
+Route::get('/admin/management/AddMoneyOfUser', 'Admin\ManagemetUserController@returnPagesManagement')->middleware(checkLogin::class);
+Route::Delete('/admin/managementAddMoney/delete/{id}', 'Admin\ManagemetUserController@deleteAddMoney')->middleware(checkLogin::class);
+Route::Patch('/admin/managementAddMoney/Accept/{id}','Admin\ManagemetUserController@acceptAddMoney')->middleware(checkLogin::class);
+Route::get('/admin/management/payments','Admin\ManagemetUserController@getPayment')->middleware(checkLogin::class);
+Route::POST('/user/addMoney',"User\ManagementUserController@addMoney")->middleware(checkLogin::class);
+Route::GET('/admin/viewDetail/Payments/{id}/{ida}',"Admin\ManagemetUserController@viewDetailPayment")->middleware(checkLogin::class);
 
 
 //User Product
@@ -44,7 +48,8 @@ Route::get('/home/viewDetailProducts/{slug}','User\ProductController@viewDetails
 Route::get('/home/sortAscending/Product','User\ProductController@sortAscending');
 Route::get('/home/sortDescending/Product','User\ProductController@sortDescending');
 Route::get('/userView/{id}','User\HomeController@viewProductByCategory');
-
+// user search
+Route::GET('/home/user/searchProduct','User\ProductController@searchProduct');
 
 // User Cart
 Route::get('/home/viewCart/ofUser',"User\ProductController@viewCart");
@@ -54,6 +59,5 @@ Route::PATCH('/home/user/minusQuantityInCart{slug}',"User\ProductController@minu
 Route::DELETE('/home/user/delete{id}',"User\ProductController@deleteProductInCart");
 Route::post('/home/userUseCode',"User\ProductController@useCode");
 Route::post('/home/user/paymentProduct',"User\ProductController@order");
-// Admin management User
-Route::POST('/user/addMoney',"User\ManagementUserController@addMoney");
+
 

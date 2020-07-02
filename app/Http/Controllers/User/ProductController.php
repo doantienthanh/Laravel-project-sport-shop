@@ -2,28 +2,29 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Products;
-use App\Companies;
-use App\Categories;
-use App\Sizes;
-use App\Details;
-use App\SizeProducts;
 use App\Carts;
+use App\Categories;
 use App\Codes;
-use App\User;
+use App\Http\Controllers\Controller;
 use App\Orders;
+use App\Products;
+use App\Sizes;
+use App\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\auth;
-use Illuminate\Support\Facades\DB;
-
-use function GuzzleHttp\json_decode;
+use Illuminate\Support\Facades\Redirect;
 
 class ProductController extends Controller
 {
     public function viewDetails($slug)
-    {
+    {$countCarts = 0;
+        if (Auth::check()) {
+            $id_user = Auth::user()->id;
+            $carts = Carts::where('user_id', $id_user)->get();
+            $countCarts = count($carts);
+        };
         $categories = Categories::all();
+        $sizes = Sizes::all();
         $products = Products::where('slug', $slug)->get();
         foreach ($products as $product) {
             $product->company;
@@ -31,7 +32,7 @@ class ProductController extends Controller
             $product->detail;
             $product->size;
         }
-        return view('users.viewDetails', ['products' => $products, 'categories' => $categories]);
+        return view('users.viewDetails', ['countCarts' => $countCarts, 'products' => $products, 'sizes' => $sizes, 'categories' => $categories]);
     }
 
     public function viewCart()
@@ -139,52 +140,94 @@ class ProductController extends Controller
     // Tiến hành thanh toán
     public function order(Request $request)
     {
-        $id_user=Auth::user()->id;
-        $carts=Carts::where('user_id', $id_user)->get();
-        $list=[];
-        $totalPriceCart=0;
+        $id_user = Auth::user()->id;
+        $carts = Carts::where('user_id', $id_user)->get();
+        $list = [];
+        $quantity = [];
+        $totalPriceCart = 0;
         foreach ($carts as $cart) {
-            $c=[
-         "id"=>$cart->product_id,
-         "quantity"=>$cart->quantity
-     ];
-            array_push($list, $c);
-            $totalPriceCart=$totalPriceCart+$cart->total_price;
+            $id = [
+                $cart->product_id,
+            ];
+            $quantities = [
+                $cart->quantity,
+            ];
+            array_push($quantity, $quantities);
+            array_push($list, $id);
+            $totalPriceCart = $totalPriceCart + $cart->total_price;
         }
-        if (Auth::user()->money<$totalPriceCart) {
+        if (Auth::user()->money < $totalPriceCart) {
             $request->session()->flash('status', 'Số tiền của bạn không đủ để tiến hành thanh toán !');
             return redirect('/home/viewCart/ofUser');
-        }else{
-        $users=User::find($id_user);
-        $name=$users->fullName;
-        $email=$users->email;
-        $address=$users->address;
-        $order= new Orders;
-        $order->id_allProducts= json_encode($list);
-        $order->user_id=$id_user;
-        $order->fullNameUserOrder=$name;
-        $order->address=$address;
-        $order->email=$email;
-        $order->totalPriceOrder=$totalPriceCart;
-        $order->save();
-        foreach ($carts as $cart){
-            $cart->delete();
-        }
-        return redirect('/home/viewCart/ofUser');
+        } else {
+            $users = User::find($id_user);
+            $name = $users->fullName;
+            $email = $users->email;
+            $address = $users->address;
+            $order = new Orders;
+            $order->id_allProducts = json_encode($list);
+            $order->quantity=json_encode($quantity);
+            $order->user_id = $id_user;
+            $order->fullNameUserOrder = $name;
+            $order->address = $address;
+            $order->email = $email;
+            $order->totalPriceOrder = $totalPriceCart;
+            $order->save();
+            foreach ($carts as $cart) {
+                $cart->delete();
+            }
+            return redirect('/home/viewCart/ofUser');
         }
     }
 
     // Sắp xếp sản phẩm tăng dần
-    function sortAscending(){
-        $product=Products::all();
+    public function sortAscending()
+    {
+        $countCarts = 0;
+        if (Auth::check()) {
+            $id_user = Auth::user()->id;
+            $carts = Carts::where('user_id', $id_user)->get();
+            $countCarts = count($carts);
+        };
+        $product = Products::all();
         $sorted = $product->sortBy('price');
-        $products=$sorted->values()->all();  
-        return view('users.sortAscending',['products'=>$products]);
+        $products = $sorted->values()->all();
+        return view('users.sortAscending', ['countCarts' => $countCarts, 'products' => $products]);
     }
     // Sắp xếp giảm dần
-    function sortDescending(){
-        $products=Products::where('price','!=',0)->orderBy('price','desc')->get();
-        return view('users.sortAscending',['products'=>$products]);
+    public function sortDescending()
+    {
+        $countCarts = 0;
+        if (Auth::check()) {
+            $id_user = Auth::user()->id;
+            $carts = Carts::where('user_id', $id_user)->get();
+            $countCarts = count($carts);
+        };
+        $products = Products::where('price', '!=', 0)->orderBy('price', 'desc')->get();
+        return view('users.sortAscending', ['countCarts' => $countCarts, 'products' => $products]);
     }
-    
+    // Tìm kiếm sản phẩm
+    public function searchProduct(REQUEST $request)
+    {
+        $countCarts = 0;
+        if (Auth::check()) {
+            $id_user = Auth::user()->id;
+            $carts = Carts::where('user_id', $id_user)->get();
+            $countCarts = count($carts);
+        };
+        $nameSearch = $request->searchProduct;
+        if ($nameSearch == "") {
+            $request->session()->flash('status', 'Bạn chưa nhập gì trong thanh tìm kiếm!');
+            return Redirect('/');
+        } else {
+            $products = Products::where('name_product', 'LIKE', '%' . $nameSearch . '%')->get();
+            if (count($products) == 0) {
+                $request->session()->flash('statuses', 'Không tìm thấy kết quả nào phù hợp với:' . $nameSearch);
+                return view('users.searchProducts', ['countCarts' => $countCarts, 'products' => $products]);
+            } else {
+                $request->session()->flash('statused', 'Kết quả cho:' . $nameSearch);
+                return view('users.searchProducts', ['countCarts' => $countCarts, 'products' => $products]);
+            }
+        }
+    }
 }

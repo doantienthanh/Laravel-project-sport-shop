@@ -14,7 +14,7 @@
                 </form>
         @else
                 <li class="nav-item active">
-                    <i class="fa fa-user"></i>
+                    <i class="fa fa-user" data-toggle="modal" data-target="#rigisterModel"></i>
                 </li> &nbsp;&nbsp; &nbsp;&nbsp;
                 <li class="nav-item active">
                     <i class="fas fa-sign-in-alt" data-toggle="modal" data-target="#loginModol"></i>
@@ -41,15 +41,43 @@
                     <div class="form-group">
                         <span class="input-group-text"><i class="far fa-user"
                                 style='font-size:30px;color:black;'></i>&ensp;&ensp;&ensp;&ensp;
-                            <input id="email" class="form-control" type="email" name="emailLogin"></span>
+                            <input id="email" placeholder="Nhập email" class="form-control" type="email" name="emailLogin"></span>
                         <span class="input-group-text"><i class="fas fa-lock"
                                 style='font-size:30px;color:black'></i>&ensp;&ensp;&ensp;&ensp;
-                            <input id="password" class="form-control" type="password" name="passwordLogin"></span>
+                            <input id="password"  placeholder="Nhập mật khẩu"  class="form-control" type="password" name="passwordLogin"></span>
                     </div>
                 </div>
                 <!-- Modal footer -->
                 <div class="modal-footer">
                     <button class="btn btn-info" type="submit" name="btnlogin" style="width:100%;height:50px;font-size:20px;">ĐĂNG NHẬP</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+<!-- The Modal login -->
+<div class="modal" id="rigisterModel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h2 class="text-center" style="color:red;margin-left:30%;">ĐĂNG KÍ TÀI KHOẢN</h2>
+                <button type="button" class="close" data-dismiss="modal" style="color:red;">X</button>
+            </div>
+            <!-- Modal body -->
+            <form action="/SendCodeToUsers" method="post" enctype="multipart/form-data">
+                @csrf
+                <div class="modal-body">
+                    <div class="form-group">
+                        <span class="input-group-text"><i class="far fa-user"
+                                style='font-size:30px;color:black;'></i>&ensp;&ensp;&ensp;&ensp;
+                            <input id="email" placeholder="Nhập email bạn muốn đăng kí" class="form-control" type="email" name="emailRegister"></span>
+                    </div>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button class="btn btn-info" type="submit" name="btnlogin" style="width:100%;height:50px;font-size:20px;">XÁC NHẬN</button>
                 </div>
             </form>
 

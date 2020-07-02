@@ -38,10 +38,14 @@
           </div>
         </div>
         </div>
+    @if(Auth::user())
         <form action="/home/user/product/addtocart/{{$products->slug}}" method="get">
             @csrf
         <button class="btn btn-info" type="submit"  style="width:60%;height:1.5cm;margin-top: 30px;margin-left: 20%;">Thêm vào giỏ hàng</button>
     </form>
+    @else
+    <button class="btn btn-info" type="submit"  style="width:60%;height:1.5cm;margin-top: 30px;margin-left: 20%;">Thêm vào giỏ hàng</button>
+    @endIf
     </div>
     @endforeach
   </div>

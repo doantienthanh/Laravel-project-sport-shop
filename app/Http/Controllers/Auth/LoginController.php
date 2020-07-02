@@ -19,14 +19,13 @@ class LoginController extends Controller
         else{
           return redirect('/admin/dashboard');
         }
-           
+
        }else{
-           echo"Khong thanh cong \n";
-           echo $email;
-           echo $password;
+        $request->session()->flash('loginFeils', 'Mật khẩu hoặc email của bạn không đúng !');
+        return  redirect('/');
        }
      }
-     
+
      function logout(){
       Auth::logout();
       return redirect('/');

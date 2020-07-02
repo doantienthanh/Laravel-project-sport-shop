@@ -112,7 +112,7 @@ class ManagemetProductController extends Controller
 
      $product->price=$newPrice;
      $product->old_price=$oldPrice;
-   
+
      $product->quantity=$quantity;
      $product->date_create=$dateCreate;
      $product->category_id=$category;
